@@ -23,7 +23,7 @@ Shoes.app :width => 600, :height => 400, :resizable => false do
   # Lets center them!
   start_x = (self.width - invader_space * invaders_per_row) / 2
 
-  # Each of the invaders will be represented by a square...but it can be changed
+  # Each of the invaders will be represented by a square
   rows.times do |y|
     invaders_per_row.times do |x|
       ix = x * invader_space + start_x
@@ -69,14 +69,14 @@ Shoes.app :width => 600, :height => 400, :resizable => false do
 
       # If the invader reaches the bottom
       if i.top + invader_girth > @player.top
-        @anim.stop && alert("You win nothing!")
+        @anim.stop and alert("You win nothing!")
         break
       end
     end
 
     # Kill all Invaders?
     if @invaders.size == 0
-      @anim.stop && alert("You win...but still get nothing!")
+      @anim.stop and alert("You win...but still get nothing!")
     end
 
     # Move the invaders down, increase speed, and change directions OH MY GOD!!
@@ -93,7 +93,7 @@ Shoes.app :width => 600, :height => 400, :resizable => false do
     @player.move @player.left + @moving, @player.top
 
     # Moving the bullet
-    @bullet.move @bullet.left + @bullet.top - 10
+    @bullet.move @bullet.left, @bullet.top - 10
 
     # Moving the invaders bullets
     @bullets.each do |b|
@@ -101,20 +101,20 @@ Shoes.app :width => 600, :height => 400, :resizable => false do
 
       # Check to see if a bullet hit the player or missed
       if b.top > @player.top
-        if b.left + 5 > @player.left && b.left + 5 < @player.left + invader_girth
+        if b.left + 5 > @player.left and b.left + 5 < @player.left + invader_girth
           # Bullet hit player
-          @anim.stop && alert("You were shot! @.@") && break
+          @anim.stop and alert("You were shot! @.@") and break
         end
-        @bullets.delete b && b.hide
+        @bullets.delete b and b.hide
       end
     end
 
     # Bullet hit Invaders?
     @invaders.each do |i|
-      if @bullet.left + 2 > i.left && @bullet.left + 2 < i.left + invader_girth
-        if @bullet.top + 3 > i.top && @bullet.top + 3 < i.top + invader_girth
-          @bullet.move 0, 0 && @bullet.hide
-          @invaders.delete i && i.hide
+      if @bullet.left + 2 > i.left and @bullet.left + 2 < i.left + invader_girth
+        if @bullet.top + 3 > i.top and @bullet.top + 3 < i.top + invader_girth
+          @bullet.move 0, 0 and @bullet.hide
+          @invaders.delete i and i.hide
         end
       end
     end
