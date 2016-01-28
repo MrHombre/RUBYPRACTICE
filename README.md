@@ -28,3 +28,11 @@ hello.sayHi
 * TicTacToe is not letting the cpu win only wins if board is full which equals a draw of the user somehow wins.
 
 * ex43 is a space adventure game. Needs a bunch of work to go through the next scene. But it's funny so there that.
+
+#Update
+*****
+ Space Invaders Clone game thing with [Shoes GUI toolkit](http://shoesrb.com)
+*****
+
+##Bug
+* for some reason when I launch Shoes.app I get a blank white screen was working earlier
