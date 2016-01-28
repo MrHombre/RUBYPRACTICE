@@ -19,7 +19,7 @@ end
  invader_girth = invader_girth * 2
 
  # Invaders move slow..you know at the start
- invaders_movement = self.width / 600
+ invader_movement = self.width / 600
 
  # Lets center them!
  start_x = (self.width - invaders_space * invaders_per_row) / 2
@@ -61,17 +61,32 @@ end
 
    # We want the invaders to only go left and right
    @invaders.each do |i|
-     i.move i.left + invaders_movement, i.top
+     i.move i.left + invader_movement, i.top
 
      # Hitting a wall blowing up the game?! Here a fix
-     if i.left + invader_girth + invaders_movement > self.width || i.left + invaders_movement < 0
+     if i.left + invader_girth + invader_movement > self.width || i.left + invader_movement < 0
        change_directions = true
      end
 
      # If the invader reaches the bottom
      if i.top + invader_girth > @player.top
-       @anim.stop && alert("You lose!")
+       @anim.stop && alert("You win nothing!")
        break
+     end
+   end
+
+   # Kill all Invaders?
+   if @invaders.size == 0
+     @anim.stop && alert("You win...but still get nothing!")
+   end
+
+   # Move the invaders down, increase speed, and change directions OH MY GOD!!
+   if change_directions
+     invader_movement = -invader_movement * 1.1
+
+     # The invaders should be going down toward the player
+     @invaders.each do |i|
+       i.move i.left, i.top + invader_girth
      end
    end
  end
