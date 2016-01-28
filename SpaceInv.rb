@@ -40,3 +40,18 @@ end
  # The bullets are slim ovals
  @bullet = oval 0, 0, 4, 7, :fill => yellow
  @bullet.hide
+
+ # The player is not moving
+ @moving = 0
+
+ every 3 do
+   #Find a invader to shoot at teh player
+   i = @invaders[rand(@invaders.size)]
+
+   # We center the bullet
+   bx = i.left + invaders_girth / 2 + 5
+   by = i.top + invaders_girth - 5
+
+   # BOOM! FIRE!!!
+   @bullets << oval(bc, by, 10 :fill => green) 
+ end
