@@ -32,3 +32,11 @@ end
      @invaders << rect(ix, iy, invaders_girth, :fill => white)
    end
  end
+
+ # The player is also a square to keep it simple
+ px = (self.width - invaders_girth) / 2
+ @player = rect px, self.height - invaders_girth * 2, invaders_girth, :fill => blue
+
+ # The bullets are slim ovals
+ @bullet = oval 0, 0, 4, 7, :fill => yellow
+ @bullet.hide
