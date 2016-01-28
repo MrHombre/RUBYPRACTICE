@@ -120,3 +120,16 @@ end
      end
    end
  end
+
+ # Respond to key press to move player and shoot
+ keypress do |key|
+   if key == :left
+     @moving = -4
+   elsif key == :right
+     @moving = 4
+   elsif key == " "
+     @bullet.move @player.left + invader_girth / 2 - 2, @player.top
+     @bullet.show
+   end
+ end
+end
