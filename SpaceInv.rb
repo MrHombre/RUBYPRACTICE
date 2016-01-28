@@ -99,5 +99,24 @@ end
    # Moving the invaders bullets
    @bullets.each do |b|
      b.move b.left, b.top + 7
+
+     # Check to see if a bullet hit the player or missed
+     if b.top > @player.top
+       if b.left + 5 > @player.left && b.left + 5 < @player.left + invader_girth
+         # BUllet hit player
+         @anim.stop && alert("You were shot!") and break
+       end
+       @bullets.delete b and b.hide
+     end
+   end
+
+   # Bullet hit Invaders?
+   @invaders.each do |i|
+     if @bullet.left + 2 > i.left && @bullet.left + 2 < i.left + invader_girth
+       if @bullet.left + 3 > i.top && @bullet.top + 3 < i.top + invader_girth
+         @bullet.move 0, 0 && @bullet.hide
+         @invaders.delete i and i.hide
+       end
+     end
    end
  end
