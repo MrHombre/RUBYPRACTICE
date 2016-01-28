@@ -6,3 +6,10 @@
 Shoes.app :width => 600, :height => 400, :resizable => false do
   background :black
 end
+
+ # Creating some monster
+ monster_per_row = 10
+ rows = 5
+
+ @monsters = []
+ @bullets = []
