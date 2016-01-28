@@ -89,4 +89,15 @@ end
        i.move i.left, i.top + invader_girth
      end
    end
+
+   # Moving the player
+   @player.move @player.left + @moving, @player.top
+
+   # Moving the bullet
+   @bullet.move @bullet.left + @bullet.top - 10
+
+   # Moving the invaders bullets
+   @bullets.each do |b|
+     b.move b.left, b.top + 7
+   end
  end
