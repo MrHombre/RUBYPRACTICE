@@ -15,19 +15,19 @@ Shoes.app :width => 600, :height => 400, :resizable => false do
 
   # Now the invaders are going to be a bit big so that they'll fit on the screen
   invader_girth = self.height / invaders_per_row / 2.4
-  invader_girth = invader_girth * 2
+  invader_space = invader_girth * 2
 
   # Invaders move slow..you know at the start
   invader_movement = self.width / 600
 
   # Lets center them!
-  start_x = (self.width - invaders_space * invaders_per_row) / 2
+  start_x = (self.width - invader_space * invaders_per_row) / 2
 
   # Each of the invaders will be represented by a square...but it can be changed
   rows.times do |y|
     invaders_per_row.times do |x|
-      ix = x * invaders_space + start_x
-      iy = y * invaders_space + invader_girth * 2
+      ix = x * invader_space + start_x
+      iy = y * invader_space + invader_girth * 2
       @invaders << rect(ix, iy, invader_girth, :fill => white)
     end
   end
@@ -103,18 +103,18 @@ Shoes.app :width => 600, :height => 400, :resizable => false do
       if b.top > @player.top
         if b.left + 5 > @player.left && b.left + 5 < @player.left + invader_girth
           # Bullet hit player
-          @anim.stop && alert("You were shot! @.@") and break
+          @anim.stop && alert("You were shot! @.@") && break
         end
-        @bullets.delete b and b.hide
+        @bullets.delete b && b.hide
       end
     end
 
     # Bullet hit Invaders?
     @invaders.each do |i|
       if @bullet.left + 2 > i.left && @bullet.left + 2 < i.left + invader_girth
-        if @bullet.left + 3 > i.top && @bullet.top + 3 < i.top + invader_girth
+        if @bullet.top + 3 > i.top && @bullet.top + 3 < i.top + invader_girth
           @bullet.move 0, 0 && @bullet.hide
-          @invaders.delete i and i.hide
+          @invaders.delete i && i.hide
         end
       end
     end
