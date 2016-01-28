@@ -33,6 +33,3 @@ hello.sayHi
 *****
  Space Invaders Clone game thing with [Shoes GUI toolkit](http://shoesrb.com)
 *****
-
-##Bug
-* for some reason when I launch Shoes.app I get a blank white screen was working earlier
