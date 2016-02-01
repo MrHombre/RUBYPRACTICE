@@ -42,6 +42,7 @@ hello.sayHi
 
 *****
 ###Unique Word Counter
+*****
 
 Imagine we're writing some code for a magazine Editor who would like some help analyzing writing samples. She would like a simple program that takes a paragraph as input, and returns all of the unique words in that paragraph, along with the number of times each of those words occurred.
 *****
