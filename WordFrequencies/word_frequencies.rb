@@ -1,5 +1,5 @@
 def f(p)
-  words = p.downcase.split(/\w/)
+  words = p.downcase.split(/\W+/)
   new_array = []
 
   words.each do |word|
