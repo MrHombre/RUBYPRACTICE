@@ -37,5 +37,11 @@ hello.sayHi
 *****
 ###INVADERS!!
 
-<img src="https://cloud.githubusercontent.com/assets/12551985/12699741/dceac9bc-c77b-11e5-9c1b-239b91012b1a.png" width="90%"></img> 
+<img src="https://cloud.githubusercontent.com/assets/12551985/12699741/dceac9bc-c77b-11e5-9c1b-239b91012b1a.png" width="90%"></img>
+*****
+
+*****
+###Unique Word Counter
+
+Imagine we're writing some code for a magazine Editor who would like some help analyzing writing samples. She would like a simple program that takes a paragraph as input, and returns all of the unique words in that paragraph, along with the number of times each of those words occurred.
 *****
